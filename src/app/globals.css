@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+    --primary-border-color: #cdb4db;
+    --secondary-border-color: #ffc8dd;
+    --inactive-border-color: #6064AB;
+    --primary-background-color: rgb(255, 255, 255);
+    --secondary-background-color: rgba(0, 0, 0, 0.1);
+    --inactive-background-color: rgba(236, 236, 236, 0.35);
+    --button-background: #d9d9d94d;
+    --button-background: rgba(217, 217, 217, 0.3);
+    --primary-color: #000000;
+    --secondary-color: rgba(0, 0, 0, 0.7);
+    --inactive-color: rgba(0, 0, 0, 0.2);
+    --accent-color: #65e4ff;
+    --error-color: red;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
