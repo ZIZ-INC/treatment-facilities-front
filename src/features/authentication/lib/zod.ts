@@ -1,5 +1,5 @@
 import {z} from "zod";
-import {getTranslator} from "@/i18n/translation";
+import {getTranslator} from "@/locales/config/translation";
 
 export const createSignUpSchema = async () => {
     const t = await getTranslator();

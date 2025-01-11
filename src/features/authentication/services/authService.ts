@@ -1,51 +1,18 @@
-import {Token, User} from "@/types/user";
 import {ApiResponse} from "@/types/api";
-import {apiClient} from "@/services/apiClient";
-import {
-    getAccessToken,
-    getRefreshToken,
-    setAccessToken,
-    setRefreshToken,
-    clearTokens,
-} from "@/services/tokenHelpers";
-import {getTranslator} from "@/i18n/translation";
-import axios from "axios";
+import {apiClient, handleResponse} from "@/services/apiClient";
+import {clearTokens, getRefreshToken, setAccessToken, setRefreshToken,} from "./tokenHelpers";
+import {getTranslator} from "@/locales/config/translation";
+import {IToken} from "@/features/authentication/type";
 
-// Centralized error extraction
-function extractErrorMessage(
-    error: unknown,
-    translator: (key: string) => string
-): string {
-    if (axios.isAxiosError(error) && error.response?.data) {
-        const {message} = error.response.data;
-        return message || translator("services.unknownError");
-    }
-    return translator("services.serverError");
-}
-
-// Handle API responses
-async function handleResponse<T>(
-    request: Promise<any>,
-    translator?: (key: string) => string
-): Promise<ApiResponse<T>> {
-    const t = translator || (await getTranslator());
-    try {
-        const response = await request;
-        return {success: true, data: response.data};
-    } catch (error) {
-        console.error("API Error:", error);
-        return {success: false, error: extractErrorMessage(error, t)};
-    }
-}
 
 // Register a new user
 export const registerUser = async (
     username: string,
     email: string,
     password: string
-): Promise<ApiResponse<Token>> => {
+): Promise<ApiResponse<IToken>> => {
     const t = await getTranslator();
-    return handleResponse<Token>(
+    return handleResponse<IToken>(
         apiClient.post("/pool_user/register/", {username, email, password}),
         t
     );
@@ -55,9 +22,9 @@ export const registerUser = async (
 export const loginUser = async (
     email: string,
     password: string
-): Promise<ApiResponse<Token>> => {
+): Promise<ApiResponse<IToken>> => {
     const t = await getTranslator();
-    const response = await handleResponse<Token>(
+    const response = await handleResponse<IToken>(
         apiClient.post("/pool_user/login/", {email, password}),
         t
     );
