@@ -1,8 +1,6 @@
 "use client"
 import {useSession} from "next-auth/react";
-import {useEffect} from "react";
 import {useTranslations} from "next-intl";
-
 
 export default function Home() {
     const {status, data} = useSession()

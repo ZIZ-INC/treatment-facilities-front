@@ -9,6 +9,7 @@ import {LanguageSelect} from '@/shared/components/LanguageSelect';
 import {Loading} from "@/shared/components/svg/Loading";
 import {Input} from "@/shared/components/Input";
 
+
 const LoginPage: React.FC = () => {
     const router = useRouter();
     const t = useTranslations("app.(authentication).login");
