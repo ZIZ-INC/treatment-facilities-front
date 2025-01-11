@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import {signOut, useSession} from "next-auth/react";
 import {LanguageSelect} from "@/shared/components/LanguageSelect";
 import {useTranslations} from "next-intl";
-import {Menu, X, LogOut} from "react-feather";
+import {Menu, X, LogOut} from "lucide-react";
 
 export function Header() {
     const {data} = useSession();
