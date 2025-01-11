@@ -1,11 +1,18 @@
-import {getUserLocale, setUserLocale} from "@/i18n/server";
 import {useTranslations} from "next-intl";
-import {locales, defaultLocale, Locale} from "@/i18n/locales";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
+import {defaultLocale, Locale, locales} from "@/locales/config/locales";
+import {getUserLocale, setUserLocale} from "@/locales/config/server";
+import {cn} from "@/core/utils/cn";
 
-export function LanguageSelector() {
-    const t = useTranslations("components.LanguageSelector");
+interface LanguageSelectorProps {
+    className?: string;
+    labelClassName?: string;
+    wrapperClassName?: string;
+}
+
+export function LanguageSelect({className, labelClassName, wrapperClassName}: LanguageSelectorProps) {
+    const t = useTranslations("shared.components.LanguageSelector");
     const [currentLocale, setCurrentLocale] = useState(defaultLocale);
     const router = useRouter();
 
@@ -24,15 +31,23 @@ export function LanguageSelector() {
     };
 
     return (
-        <div>
-            <label htmlFor="language" className="sr-only">
+        <div className={cn(wrapperClassName, "flex items-center h-10 gap-2")}>
+            <label
+                htmlFor="language"
+                className={cn("text-primaryColor font-medium",
+                    labelClassName
+                )}
+            >
                 {t("label")}
             </label>
             <select
                 id="language"
                 value={currentLocale}
                 onChange={handleLocaleChange}
-                className="p-2 border rounded"
+                className={cn(
+                    "p-2 border rounded",
+                    className
+                )}
             >
                 {locales.map((locale) => (
                     <option key={locale} value={locale}>
