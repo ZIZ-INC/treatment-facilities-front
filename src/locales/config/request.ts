@@ -1,7 +1,7 @@
 import { getRequestConfig } from "next-intl/server";
 
 import { defaultLocale } from "./locales";
-import { getUserLocale } from "@/i18n/server";
+import { getUserLocale } from "./server";
 
 export default getRequestConfig(async () => {
   const locale = (await getUserLocale()) || defaultLocale;
@@ -9,7 +9,7 @@ export default getRequestConfig(async () => {
   try {
     return {
       locale,
-      messages: (await import(`@/messages/${locale}.json`)).default,
+      messages: (await import(`@/locales/messages/${locale}.json`)).default,
     };
   } catch (error) {
     console.error(
@@ -17,7 +17,7 @@ export default getRequestConfig(async () => {
     );
     return {
       locale: defaultLocale,
-      messages: (await import(`@/messages/${defaultLocale}.json`)).default,
+      messages: (await import(`@/locales/messages/${defaultLocale}.json`)).default,
     };
   }
 });
