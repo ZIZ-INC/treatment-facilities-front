@@ -1,6 +1,6 @@
 # Next.js 15 Boilerplate with Next-Auth, TypeScript, and Internationalization
 
-This is a fully functional Next.js 15 boilerplate project built with modern technologies, offering authentication, internationalization, form validation, and styled UI using Tailwind CSS. The project serves as a solid foundation for building scalable web applications.
+A modern boilerplate for building scalable web applications with **Next.js 15**, **TypeScript**, and integrated **i18n** (internationalization). Perfect for developers looking for authentication (Next-Auth), schema validation (Zod), and responsive designs (Tailwind CSS).
 
 ---
 
@@ -63,6 +63,9 @@ Make sure you have the following installed:
 
 ## File Structure
 
+<details>
+<summary>Click to expand the file structure</summary>
+
 ```plaintext
 src/
 ├── app/
@@ -82,40 +85,56 @@ src/
 │   │   └── auth/
 │   │       └── [...nextauth]/
 │   │           └── route.ts
-│   ├── global.css
 │   └── layout.tsx
-├── components/
-│   ├── svg/
-│   │   └── SignOut.tsx
-│   └── LanguageSelector.tsx
-├── data/
-│   └── env/
-│       ├── client.ts
-│       └── server.ts
-├── i18n/
-│   ├── locales.ts
-│   ├── request.ts
-│   ├── server.ts
-│   └── translation.ts
-├── lib/
-│   └── zod.ts
-├── messages/
-│   ├── en.json
-│   ├── kk.json
-│   └── ru.json
-├── providers/
-│   └── NextAuthSessionProvider.tsx
+├── core/
+│   ├── data/
+│   │   └── env/
+│   │       ├── client.ts
+│   │       └── server.ts
+│   ├── providers/
+│   │   └── AllProviders.tsx
+│   ├── styles/
+│   │   └── globals.css
+│   └── utils/
+│       ├── case.ts
+│       └── cn.ts
+├── features/
+│   ├── authentication/
+│   │   └── lib/
+│   │       └── zod.ts
+│   ├── services/
+│   │   ├── authService.ts
+│   │   └── tokenHelpers.ts
+│   └── type.d.ts
+├── locales/
+│   ├── config/
+│   │   ├── locales.ts
+│   │   ├── request.ts
+│   │   ├── server.ts
+│   │   └── translation.ts
+│   └── messages/
+│       ├── en.json
+│       ├── kk.json
+│       └── ru.json
 ├── services/
-│   ├── apiClient.ts
-│   ├── authService.ts
-│   └── tokenHelpers.ts
+│   └── apiClient.ts
+├── shared/
+│   └── components/
+│       ├── svg/
+│       │   └── Loading.tsx
+│       ├── Checkbox.tsx
+│       ├── Input.tsx
+│       ├── LanguageSelect.tsx
+│       └── Select.tsx
 ├── types/
 │   ├── api.d.ts
 │   ├── user.d.ts
 │   └── next-auth.d.ts
 ├── auth.ts
-├── middleware.ts
+└── middleware.ts
 ```
+
+</details>
 
 ---
 
@@ -148,9 +167,9 @@ src/
 
 ### Add New Languages
 
-1. Create a new JSON file in the `messages/` directory, e.g., `fr.json` for French.
+1. Create a new JSON file in the `locales/messages/` directory, e.g., `fr.json` for French.
 2. Add translations for the keys in the JSON file.
-3. Update the `locales` array in `i18n/locales.ts`:
+3. Update the `locales` array in `locales/config/locales.ts`:
 
    ```typescript
    export const locales = ['en', 'ru', 'kk', 'fr'];
@@ -168,13 +187,14 @@ src/
 
 ## Built With
 
-- **[Next.js](https://nextjs.org/)** - The React Framework
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-First CSS Framework
+- **[Next.js](https://nextjs.org/)** - React framework for server-rendered applications
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
 - **[Next-Auth](https://authjs.dev/)** - Authentication for Next.js
-- **[Zod](https://zod.dev/)** - TypeScript-first schema validation
+- **[Next-Intl](https://next-intl-docs.vercel.app/)** - Internationalization and localization
+- **[Zod](https://zod.dev/)** - Schema validation
 - **[React-Toastify](https://fkhadra.github.io/react-toastify/)** - Toast notifications
-- **[JWT Decode](https://www.npmjs.com/package/jwt-decode)** - Decode JWT tokens
-- **[Next-Intl](https://next-intl-docs.vercel.app/)** - Internationalization for Next.js
+- **[@t3-oss/env-nextjs](https://github.com/t3-oss/t3-env)** - Type-safe environment variable management for Next.js
+- **[@tanstack/react-query](https://tanstack.com/query/latest)** - Optimized data fetching and caching for React
 
 ---
 
