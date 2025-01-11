@@ -8,6 +8,8 @@ import {useTranslations} from "next-intl";
 import {LanguageSelect} from '@/shared/components/LanguageSelect';
 import {Loading} from "@/shared/components/svg/Loading";
 import {Input} from "@/shared/components/Input";
+import {Checkbox} from "@/shared/components/Checkbox";
+import {Button} from "@/shared/components/ui/button";
 
 
 const LoginPage: React.FC = () => {
@@ -79,9 +81,8 @@ const LoginPage: React.FC = () => {
                         className="block w-full px-4 py-3 border border-inactiveBorderColor rounded-lg shadow-sm focus:ring-accentColor focus:border-accentBorderColor text-lg text-primaryColor bg-inactiveBackground"
                         placeholder={t("passwordPlaceholder")}
                     />
-
                     {/* Submit Button */}
-                    <button
+                    <Button
                         type="submit"
                         disabled={loading}
                         className={`w-full py-3 ${
@@ -89,7 +90,12 @@ const LoginPage: React.FC = () => {
                         } text-accentColor font-semibold rounded-lg text-lg`}
                     >
                         {loading ? <Loading className="w-6 h-6 mx-auto"/> : t("submitButton")}
-                    </button>
+                    </Button>
+
+                    <Checkbox
+                        label={t("remember")}
+                        name={"checkbox"}
+                    />
                 </form>
                 <p className="mt-6 text-center text-lg text-secondaryColor">
                     {t("noAccountMessage")}{' '}
