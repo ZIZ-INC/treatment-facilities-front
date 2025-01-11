@@ -1,18 +1,22 @@
 'use client';
-import React from 'react';
+import React, {useState} from 'react';
 import {useRouter} from 'next/navigation';
 import {signIn} from 'next-auth/react';
 import Link from 'next/link';
 import {toast} from 'react-toastify';
 import {useTranslations} from "next-intl";
-import {LanguageSelector} from '@/components/LanguageSelector';
+import {LanguageSelect} from '@/shared/components/LanguageSelect';
+import {Loading} from "@/shared/components/svg/Loading";
+import {Input} from "@/shared/components/Input";
 
 const LoginPage: React.FC = () => {
     const router = useRouter();
-    const t = useTranslations("login");
+    const t = useTranslations("app.(authentication).login");
+    const [loading, setLoading] = useState(false);
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        setLoading(true); // Start loading animation
 
         const formData = new FormData(event.currentTarget);
         const email = formData.get('email') as string;
@@ -39,6 +43,8 @@ const LoginPage: React.FC = () => {
             }
         } catch (error) {
             toast.error(t("unexpectedError"));
+        } finally {
+            setLoading(false); // Stop loading animation
         }
     };
 
@@ -49,58 +55,44 @@ const LoginPage: React.FC = () => {
                     <h2 className="text-3xl font-bold text-center mb-8 text-primaryColor">
                         {t("title")}
                     </h2>
-                    <LanguageSelector/>
+                    <LanguageSelect/>
                 </div>
-                <form onSubmit={onSubmit}>
-                    {/* Email Field */}
-                    <div className="mb-6">
-                        <label
-                            htmlFor="email"
-                            className="block text-lg font-medium text-secondaryColor mb-2"
-                        >
-                            {t("emailLabel")}
-                        </label>
-                        <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            required
-                            className="block w-full px-4 py-3 border border-inactiveBorderColor rounded-lg shadow-sm focus:ring-accentColor focus:border-accentColor text-lg text-primaryColor bg-inactiveBackground"
-                            placeholder={t("emailPlaceholder")}
-                        />
-                    </div>
-
-                    {/* Password Field */}
-                    <div className="mb-6">
-                        <label
-                            htmlFor="password"
-                            className="block text-lg font-medium text-secondaryColor mb-2"
-                        >
-                            {t("passwordLabel")}
-                        </label>
-                        <input
-                            type="password"
-                            name="password"
-                            id="password"
-                            required
-                            className="block w-full px-4 py-3 border border-inactiveBorderColor rounded-lg shadow-sm focus:ring-accentColor focus:border-accentColor text-lg text-primaryColor bg-inactiveBackground"
-                            placeholder={t("passwordPlaceholder")}
-                        />
-                    </div>
+                <form
+                    className="flex flex-col gap-4"
+                    onSubmit={onSubmit}>
+                    <Input
+                        label={t("emailLabel")}
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        className="block w-full px-4 py-3 border border-inactiveBorderColor rounded-lg shadow-sm focus:ring-accentColor focus:border-accentBorderColor text-lg text-primaryColor bg-inactiveBackground"
+                        placeholder={t("emailPlaceholder")}
+                    />
+                    <Input
+                        label={t("passwordLabel")}
+                        type="password"
+                        name="password"
+                        id="password"
+                        required
+                        className="block w-full px-4 py-3 border border-inactiveBorderColor rounded-lg shadow-sm focus:ring-accentColor focus:border-accentBorderColor text-lg text-primaryColor bg-inactiveBackground"
+                        placeholder={t("passwordPlaceholder")}
+                    />
 
                     {/* Submit Button */}
-                    <div>
-                        <button
-                            type="submit"
-                            className="w-full py-3 bg-accentColor hover:bg-secondaryColor text-primaryBackground font-semibold rounded-lg text-lg"
-                        >
-                            {t("submitButton")}
-                        </button>
-                    </div>
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        className={`w-full py-3 ${
+                            loading ? "bg-inactiveBackgroundColor cursor-not-allowed" : "bg-accentBackgroundColor hover:bg-inactiveBackgroundColor"
+                        } text-accentColor font-semibold rounded-lg text-lg`}
+                    >
+                        {loading ? <Loading className="w-6 h-6 mx-auto"/> : t("submitButton")}
+                    </button>
                 </form>
                 <p className="mt-6 text-center text-lg text-secondaryColor">
                     {t("noAccountMessage")}{' '}
-                    <Link href="/register" className="text-accentColor hover:text-primaryColor font-medium">
+                    <Link href="/register" className="text-accentBackgroundColor hover:text-primaryColor font-medium">
                         {t("registerLink")}
                     </Link>
                 </p>
