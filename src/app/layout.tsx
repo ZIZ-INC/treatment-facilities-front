@@ -19,9 +19,52 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
+
 export const metadata: Metadata = {
-    title: "Рассчет бассейна",
-    description: "Для создания коммерческого предложения",
+    title: {
+        default: "Next Intl Auth",
+        template: `%s - Next Intl Auth`,
+    },
+    metadataBase: new URL("https://github.com/Sayyat/next-intl-auth"),
+    description: "A modern boilerplate for building scalable web applications with **Next.js 15**, **TypeScript**, and integrated **i18n** (internationalization). Perfect for developers looking for authentication (Next-Auth), schema validation (Zod), and responsive designs (Tailwind CSS).\n",
+    keywords: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Next-Auth",
+        "Internationalization",
+    ],
+    authors: [
+        {
+            name: "ZIZ INC.",
+            url: "https://web.ziz.kz/",
+        },
+    ],
+    creator: "ZIZ INC.",
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: "https://next-intl-auth-mu.vercel.app",
+        title: "Your Project Name",
+        description: "A brief description of your project for Open Graph.",
+        siteName: "Next Intl Auth",
+        images: [
+            {
+                url: "https://yourprojectdomain.com/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Next Intl Auth",
+            },
+        ],
+    },
+    generator: "Next js",
+    icons: {
+        icon: "/globe.svg",
+        shortcut: "/globe.svg",
+        apple: "/globe.svg",
+    },
+    manifest: "https://next-intl-auth-mu.vercel.app/site.webmanifest",
 };
 
 
