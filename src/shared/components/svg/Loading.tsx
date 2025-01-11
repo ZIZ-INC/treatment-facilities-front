@@ -1,5 +1,5 @@
 import React, {SVGAttributes} from "react";
-import {cn} from "@/core/utils/cn";
+import {cn} from "@/shared/lib/utils";
 
 interface LoadingProps extends SVGAttributes<SVGSVGElement> {
     className?: string; // Optional additional class for styling
