@@ -1,5 +1,8 @@
 import React, {InputHTMLAttributes} from "react";
-import {cn} from "@/core/utils/cn";
+import {cn} from "@/shared/lib/utils";
+import {Input as ShadCnInput} from "@/shared/components/ui/input"
+import {Label as ShadCnLabel} from "@/shared/components/ui/label"
+
 
 interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
@@ -25,7 +28,7 @@ export const Input: React.FC<InputFieldProps> = ({
             wrapperClassName // Custom styles for wrapper
         )}
     >
-        <label
+        <ShadCnLabel
             htmlFor={props.id}
             className={cn(
                 "font-medium w-full text-[16px]",
@@ -34,12 +37,10 @@ export const Input: React.FC<InputFieldProps> = ({
             )}
         >
             {label}
-        </label>
+        </ShadCnLabel>
         <div className="flex items-center w-full gap-2">
-            <input
-                className={cn(
-                    "border border-gray-300 rounded-md px-4 py-2 w-full outline-none focus:ring-2 focus:ring-blue-500",
-                    className,
+            <ShadCnInput
+                className={cn(className,
                     !props.disabled ? "text-primaryColor" : "text-secondaryColor"
                 )}
                 {...props}

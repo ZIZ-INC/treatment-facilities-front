@@ -1,9 +1,19 @@
-import {useTranslations} from "next-intl";
-import React, {useEffect, useState} from "react";
-import {useRouter} from "next/navigation";
-import {defaultLocale, Locale, locales} from "@/locales/config/locales";
-import {getUserLocale, setUserLocale} from "@/locales/config/server";
-import {cn} from "@/core/utils/cn";
+"use client";
+
+import { useTranslations } from "next-intl";
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { defaultLocale, Locale, locales } from "@/locales/config/locales";
+import { getUserLocale, setUserLocale } from "@/locales/config/server";
+import { cn } from "@/shared/lib/utils";
+import { Label } from "@/shared/components/ui/label";
+import {
+    Select as ShadCnSelect,
+    SelectTrigger,
+    SelectContent,
+    SelectItem,
+    SelectValue,
+} from "@/shared/components/ui/select";
 
 interface LanguageSelectorProps {
     className?: string;
@@ -11,7 +21,11 @@ interface LanguageSelectorProps {
     wrapperClassName?: string;
 }
 
-export function LanguageSelect({className, labelClassName, wrapperClassName}: LanguageSelectorProps) {
+export function LanguageSelect({
+    className,
+    labelClassName,
+    wrapperClassName,
+}: LanguageSelectorProps) {
     const t = useTranslations("shared.components.LanguageSelector");
     const [currentLocale, setCurrentLocale] = useState(defaultLocale);
     const router = useRouter();
@@ -23,38 +37,37 @@ export function LanguageSelect({className, labelClassName, wrapperClassName}: La
         })();
     }, []);
 
-    const handleLocaleChange = async (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const newLocale = event.target.value as Locale;
-        await setUserLocale(newLocale); // Save the selected locale
-        setCurrentLocale(newLocale); // Update the state
+    const handleLocaleChange = async (locale: Locale) => {
+        await setUserLocale(locale); // Save the selected locale
+        setCurrentLocale(locale); // Update the state
         router.refresh(); // Refresh the page to apply the new locale
     };
 
     return (
         <div className={cn(wrapperClassName, "flex items-center h-10 gap-2")}>
-            <label
+            <Label
                 htmlFor="language"
-                className={cn("text-primaryColor font-medium",
-                    labelClassName
-                )}
+                className={cn("text-primaryColor font-medium", labelClassName)}
             >
                 {t("label")}
-            </label>
-            <select
-                id="language"
-                value={currentLocale}
-                onChange={handleLocaleChange}
-                className={cn(
-                    "p-2 border rounded",
-                    className
-                )}
-            >
-                {locales.map((locale) => (
-                    <option key={locale} value={locale}>
-                        {t(locale)}
-                    </option>
-                ))}
-            </select>
+            </Label>
+            <ShadCnSelect value={currentLocale} onValueChange={handleLocaleChange}>
+                <SelectTrigger
+                    className={cn(
+                        "p-2 border rounded text-sm",
+                        className
+                    )}
+                >
+                    <SelectValue placeholder={t(currentLocale)} />
+                </SelectTrigger>
+                <SelectContent>
+                    {locales.map((locale) => (
+                        <SelectItem key={locale} value={locale}>
+                            {t(locale)}
+                        </SelectItem>
+                    ))}
+                </SelectContent>
+            </ShadCnSelect>
         </div>
     );
 }

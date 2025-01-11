@@ -1,7 +1,10 @@
-import React, {InputHTMLAttributes} from "react";
-import {cn} from "@/core/utils/cn";
+import React, {RefAttributes} from "react";
+import {cn} from "@/shared/lib/utils";
+import {Checkbox as ShadCnCheckbox} from "@/shared/components/ui/checkbox"
+import {CheckboxProps} from "@radix-ui/react-checkbox";
+import {Label} from "@/shared/components/ui/label";
 
-interface CheckboxFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+interface CheckboxFieldProps extends Omit<CheckboxProps & RefAttributes<HTMLButtonElement>, "ref"> {
     name: string;
     label: string;
     className?: string; // Styles for the checkbox input
@@ -23,17 +26,13 @@ export const Checkbox: React.FC<CheckboxFieldProps> = ({
             wrapperClassName // Custom styles for wrapper
         )}
     >
-        <input
-            type="checkbox"
+        <ShadCnCheckbox
             id={name}
             name={name}
-            className={cn(
-                "h-5 w-5 border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500",
-                className // Custom styles for checkbox
-            )}
+            className={className}
             {...props}
         />
-        <label
+        <Label
             htmlFor={name}
             className={cn(
                 "text-primaryColor font-medium",
@@ -41,6 +40,6 @@ export const Checkbox: React.FC<CheckboxFieldProps> = ({
             )}
         >
             {label}
-        </label>
+        </Label>
     </div>
 );
