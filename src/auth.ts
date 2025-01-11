@@ -1,12 +1,12 @@
 import NextAuth, {CredentialsSignin} from "next-auth"
 import Credentials from "next-auth/providers/credentials";
 
-import {createSignUpSchema, createSignInSchema} from "@/lib/zod";
-import {getTranslator} from "@/i18n/translation";
-import {loginUser, registerUser} from "@/services/authService";
+import {createSignInSchema, createSignUpSchema} from "@/features/authentication/lib/zod";
+import {loginUser, registerUser} from "@/features/authentication/services/authService";
 import {z} from "zod";
 import {jwtDecode} from "jwt-decode";
-import {CustomJwtPayload} from "@/types/user";
+import {getTranslator} from "@/locales/config/translation";
+import {ICustomJwtPayload} from "@/features/authentication/type";
 
 class InvalidLoginError extends CredentialsSignin {
     constructor(message: string) {
@@ -53,7 +53,7 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
                 if (!result.success) {
                     throw new InvalidLoginError(result.error);
                 }
-                const decodedAccessToken = jwtDecode(result.data.access) as CustomJwtPayload
+                const decodedAccessToken = jwtDecode(result.data.access) as ICustomJwtPayload
                 if (!decodedAccessToken) {
                     throw new InvalidLoginError(t("auth.invalidToken"));
                 }
@@ -89,7 +89,7 @@ export const {handlers, signIn, signOut, auth} = NextAuth({
                 if (!result.success) {
                     throw new InvalidLoginError(result.error);
                 }
-                const decodedAccessToken = jwtDecode(result.data.access) as CustomJwtPayload
+                const decodedAccessToken = jwtDecode(result.data.access) as ICustomJwtPayload
                 if (!decodedAccessToken) {
                     throw new InvalidLoginError(t("auth.invalidToken"));
                 }
