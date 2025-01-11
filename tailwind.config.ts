@@ -1,25 +1,26 @@
 import type {Config} from "tailwindcss";
 
 export default {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {
       colors: {
         primaryBorderColor: "var(--primary-border-color)",
         secondaryBorderColor: "var(--secondary-border-color)",
         inactiveBorderColor: "var(--inactive-border-color)",
+        accentBorderColor: "var(--accent-border-color)",
+        errorBorderColor: "var(--error-border-color)",
+
         primaryBackgroundColor: "var(--primary-background-color)",
         secondaryBackgroundColor: "var(--secondary-background-color)",
         inactiveBackgroundColor: "var(--inactive-background-color)",
-        buttonBackgroundColor: "var(--button-background)",
+        accentBackgroundColor: "var(--accent-background-color)",
+        errorBackgroundColor: "var(--error-background-color)",
+
         primaryColor: "var(--primary-color)",
         secondaryColor: "var(--secondary-color)",
-        accentColor: "var(--accent-color)",
         inactiveColor: "var(--inactive-color)",
+        accentColor: "var(--accent-color)",
         errorColor: "var(--error-color)",
       },
       backgroundImage: {
