@@ -4,33 +4,30 @@ import {auth} from "@/auth";
 import {Header} from "@/app/(ui)/_components/Header";
 import {Footer} from "@/app/(ui)/_components/Footer";
 
-
 export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-
     const session = await auth();
-    if (!session) redirect("/login")
+    if (!session) redirect("/login");
 
     return (
-        <div className="grid grid-rows-[6rem_1fr_6rem] min-h-screen">
+        <div className="flex flex-col h-dvh">
             {/* Header */}
-            <div className="w-full bg-secondaryBackgroundColor">
+            <div className="min-h-16 max-h-32 bg-secondaryBackgroundColor flex-shrink-0">
                 <Header/>
             </div>
 
             {/* Main Content */}
-            <div className="w-full bg-primaryBackgroundColor rounded-xl">
+            <div className="flex-1 overflow-auto bg-primaryBackgroundColor">
                 {children}
             </div>
 
             {/* Footer */}
-            <div className="w-full bg-secondaryBackgroundColor">
+            <div className="h-16 border-t flex-shrink-0">
                 <Footer/>
             </div>
         </div>
-
     );
 }
