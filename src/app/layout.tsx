@@ -1,12 +1,13 @@
 import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
-import "./globals.css";
+import "@/core/styles/globals.css";
 import {NextIntlClientProvider} from "next-intl";
-import {defaultLocale} from "@/i18n/locales";
+import {defaultLocale} from "@/locales/config/locales";
 import {ToastContainer} from "react-toastify";
 import React from "react";
 import {getMessages} from "next-intl/server";
-import NextAuthSessionProvider from "@/providers/NextAuthSessionProvider";
+import AllProviders from "@/core/providers/AllProviders";
+
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -22,7 +23,6 @@ export const metadata: Metadata = {
     title: "Рассчет бассейна",
     description: "Для создания коммерческого предложения",
 };
-
 
 
 export default async function RootLayout({
@@ -43,18 +43,17 @@ export default async function RootLayout({
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-        <NextAuthSessionProvider>
-            <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={messages}>
+            <AllProviders>
                 {children}
                 <ToastContainer
                     limit={3}
                     toastClassName={
-                        "text-3xl font-bold text-secondaryColor flex items-center p-4 "
+                        "font-bold text-secondaryColor flex items-center p-4 "
                     }
                 />
-                {/*</NextIntlClientProvider>*/}
-            </NextIntlClientProvider>
-        </NextAuthSessionProvider>
+            </AllProviders>
+        </NextIntlClientProvider>
         </body>
         </html>
     );
