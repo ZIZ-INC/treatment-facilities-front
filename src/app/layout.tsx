@@ -6,7 +6,7 @@ import {defaultLocale} from "@/locales/config/locales";
 import {ToastContainer} from "react-toastify";
 import React from "react";
 import {getMessages} from "next-intl/server";
-import AllProviders from "@/core/providers/AllProviders";
+import {AllProviders} from "@/core/providers/AllProviders";
 
 
 const geistSans = Geist({
