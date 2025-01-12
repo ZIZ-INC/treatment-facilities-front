@@ -35,7 +35,7 @@ export const Checkbox: React.FC<CheckboxFieldProps> = ({
         <Label
             htmlFor={name}
             className={cn(
-                "text-primaryColor font-medium",
+                "font-medium",
                 labelClassName
             )}
         >

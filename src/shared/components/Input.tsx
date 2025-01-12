@@ -41,7 +41,7 @@ export const Input: React.FC<InputFieldProps> = ({
         <div className="flex items-center w-full gap-2">
             <ShadCnInput
                 className={cn(className,
-                    !props.disabled ? "text-primaryColor" : "text-secondaryColor"
+                    !props.disabled ?"text-primaryColor" : "text-secondaryColor"
                 )}
                 {...props}
             />

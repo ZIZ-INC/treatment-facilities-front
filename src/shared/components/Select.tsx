@@ -43,7 +43,6 @@ export const Select: React.FC<SelectFieldProps> = ({
         >
             {label}
         </Label>
-
         <ShadCnSelect>
             <SelectTrigger
                 className={cn(
