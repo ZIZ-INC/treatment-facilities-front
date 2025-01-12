@@ -9,15 +9,8 @@ A modern boilerplate for building scalable web applications with **Next.js 15**,
 ## Deployment
 
 This project is live and deployed on **Vercel**!  
-Visit the live demo: **[Next.js Boilerplate Live](https://next-intl-auth-mu.vercel.app/)**
+Visit the live demo: **[Next Intl Auth Boilerplate Live](https://next-intl-auth-mu.vercel.app/)**
 
-### How to Deploy on Vercel
-
-1. Install the [Vercel CLI](https://vercel.com/docs/cli):
-   ```bash
-   npm install -g vercel
-   ```
-   
 
 ## Features
 
@@ -135,8 +128,9 @@ src/
 │   └── apiClient.ts
 ├── shared/
 │   └── components/
+│   │   ├── svg/
 │   │   │   └── Loading.tsx
-│   │   ├── ui/
+│   │   ├── ui/ - for shadcn cli
 │   │   │   ├── button.tsx
 │   │   │   ├── checkbox.tsx
 │   │   │   ├── input.tsx
@@ -150,6 +144,9 @@ src/
 │   │   └── useTheme.ts
 │   └── lib/
 │       └── utils.ts
+├── tests/
+│   ├── e2e/ - all e2e tests folder
+│   └── setup.ts
 ├── types/
 │   ├── api.d.ts
 │   ├── user.d.ts
@@ -172,7 +169,7 @@ src/
 ### Localization
 
 - The project uses `next-intl` for localization.
-- Languages supported: `English`, `Russian`, and `Kazakh`.
+- Languages supported: `Kazakh`, `English`, and `Russian`.
 - The language can be changed using the dropdown in the header.
 
 ### Toast Notifications
@@ -223,6 +220,69 @@ src/
 - **[@tanstack/react-query](https://tanstack.com/query/latest)** - Optimized data fetching and caching for React
 
 ---
+
+## 🚀 Running Tests
+
+This project includes a robust testing setup to ensure code quality and application reliability. Below are the details for running different types of tests:
+
+### 1. **Unit and Integration Tests**
+We use **Vitest** with **React Testing Library** to write and run unit and integration tests.
+
+#### Run Unit/Integration Tests:
+```bash
+yarn test
+```
+
+#### Watch Tests:
+```bash
+yarn test:watch
+```
+
+#### Coverage Report:
+```bash
+yarn coverage
+```
+
+---
+
+### 2. **End-to-End (E2E) Tests**
+We use **Playwright** for writing end-to-end tests.
+
+#### Run E2E Tests:
+```bash
+yarn test:e2e
+```
+
+#### Playwright Test Runner UI:
+```bash
+yarn test:e2e --ui
+```
+
+### Notes:
+- Ensure the application is running locally before starting E2E tests.
+- Configure environment variables in `.env.test` for test-specific setups.
+
+---
+
+### 3. **Test Setup**
+- **Unit Testing Framework**: [Vitest](https://vitest.dev/)
+- **E2E Testing Framework**: [Playwright](https://playwright.dev/)
+- **Component Testing**: [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+
+#### Test Directory Structure
+- Unit tests: `src/` (next to each component)
+- E2E tests: `src/tests/e2e/`
+
+---
+
+### Example Test Command:
+```bash
+yarn test  # Runs all unit and integration tests
+yarn test:e2e  # Runs all E2E tests
+```
+
+---
+
 
 ## Contributing
 
