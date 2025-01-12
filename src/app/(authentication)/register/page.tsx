@@ -10,11 +10,14 @@ import {Loading} from "@/shared/components/svg/Loading";
 import {Input} from "@/shared/components/Input";
 import {Checkbox} from "@/shared/components/Checkbox";
 import {Button} from "@/shared/components/ui/button";
+import {Moon, Sun} from "lucide-react";
+import {useTheme} from "@/shared/hooks/useTheme";
 
 const RegisterPage: React.FC = () => {
     const router = useRouter();
     const t = useTranslations('app.(authentication).register');
     const [loading, setLoading] = useState(false);
+    const {theme, toggleTheme} = useTheme()
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -60,7 +63,16 @@ const RegisterPage: React.FC = () => {
                     <h2 className="text-3xl font-bold text-center mb-8 text-primaryColor">
                         {t("title")}
                     </h2>
-                    <LanguageSelect/>
+                    <div className="flex items-center">
+                        <LanguageSelect/>
+                        <button onClick={toggleTheme} aria-label={t("toggleTheme")}>
+                            {theme === "light" ? (
+                                <Moon className="w-6 h-6 text-gray-600"/>
+                            ) : (
+                                <Sun className="w-6 h-6 text-gray-300"/>
+                            )}
+                        </button>
+                    </div>
                 </div>
                 <form
                     className="flex flex-col gap-4"
