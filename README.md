@@ -6,14 +6,15 @@ A modern boilerplate for building scalable web applications with **Next.js 15**,
 
 ## Features
 
-- **Next.js 15**: Leveraging the latest features of Next.js, including the App Router.
-- **TypeScript**: Strongly typed JavaScript for better developer experience and reliability.
-- **Next-Auth v5**: Seamless authentication with JWT support.
-- **JWT Decode**: Decoding and validating JSON Web Tokens for secure user management.
-- **Next-Intl**: Fully integrated internationalization and localization support.
-- **Zod**: Schema-based form validation.
-- **React-Toastify**: Elegant toast notifications for user feedback.
-- **Tailwind CSS**: Utility-first CSS for building modern responsive designs.
+- **Next.js**: React framework for server-side rendering and optimized performance.
+- **TypeScript**: Strongly-typed development for enhanced code reliability.
+- **Next-Auth**: Simplified authentication with OAuth and JWT support.
+- **shadcn/ui**: Modular, accessible UI components built on top of Radix UI and styled with Tailwind CSS.
+- **Zod**: Type-safe schema validation for forms and APIs.
+- **next-intl**: Internationalization support with dynamic locale management.
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development.
+- **Lucide Icons**: A modern and consistent icon library for React.
+- **Light/Dark Mode**: Customizable themes with user preference persistence.
 
 ---
 
@@ -96,8 +97,7 @@ src/
 │   ├── styles/
 │   │   └── globals.css
 │   └── utils/
-│       ├── case.ts
-│       └── cn.ts
+│       └── case.ts
 ├── features/
 │   ├── authentication/
 │   │   └── lib/
@@ -120,12 +120,21 @@ src/
 │   └── apiClient.ts
 ├── shared/
 │   └── components/
-│       ├── svg/
-│       │   └── Loading.tsx
-│       ├── Checkbox.tsx
-│       ├── Input.tsx
-│       ├── LanguageSelect.tsx
-│       └── Select.tsx
+│   │   │   └── Loading.tsx
+│   │   ├── ui/
+│   │   │   ├── button.tsx
+│   │   │   ├── checkbox.tsx
+│   │   │   ├── input.tsx
+│   │   │   ├── label.tsx
+│   │   │   └── select.tsx
+│   │   ├── Checkbox.tsx
+│   │   ├── Input.tsx
+│   │   ├── LanguageSelect.tsx
+│   │   └── Select.tsx
+│   ├── hooks/
+│   │   └── useTheme.ts
+│   └── lib/
+│       └── utils.ts
 ├── types/
 │   ├── api.d.ts
 │   ├── user.d.ts
@@ -191,6 +200,8 @@ src/
 - **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
 - **[Next-Auth](https://authjs.dev/)** - Authentication for Next.js
 - **[Next-Intl](https://next-intl-docs.vercel.app/)** - Internationalization and localization
+- **[shadcn/ui](https://ui.shadcn.com/)**: Modular, accessible UI components built on top of Radix UI and styled with Tailwind CSS.
+- **[Lucide Icons](https://lucide.dev/)**: A modern and consistent icon library for React.
 - **[Zod](https://zod.dev/)** - Schema validation
 - **[React-Toastify](https://fkhadra.github.io/react-toastify/)** - Toast notifications
 - **[@t3-oss/env-nextjs](https://github.com/t3-oss/t3-env)** - Type-safe environment variable management for Next.js
