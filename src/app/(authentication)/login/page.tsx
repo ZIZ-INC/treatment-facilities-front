@@ -10,12 +10,15 @@ import {Loading} from "@/shared/components/svg/Loading";
 import {Input} from "@/shared/components/Input";
 import {Checkbox} from "@/shared/components/Checkbox";
 import {Button} from "@/shared/components/ui/button";
+import {useTheme} from "@/shared/hooks/useTheme";
+import {Moon, Sun} from "lucide-react";
 
 
 const LoginPage: React.FC = () => {
     const router = useRouter();
     const t = useTranslations("app.(authentication).login");
     const [loading, setLoading] = useState(false);
+    const {theme, toggleTheme} = useTheme()
 
     const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -53,12 +56,21 @@ const LoginPage: React.FC = () => {
 
     return (
         <div className="flex justify-center items-center min-h-screen">
-            <div className="w-full max-w-lg p-10 rounded-xl border border-primaryBorderColor">
+            <div className="w-full max-w-lg p-10 rounded-xl border">
                 <div className="flex justify-between">
-                    <h2 className="text-3xl font-bold text-center mb-8 text-primaryColor">
+                    <h2 className="text-3xl font-bold text-center mb-8">
                         {t("title")}
                     </h2>
-                    <LanguageSelect/>
+                    <div className="flex items-center">
+                        <LanguageSelect/>
+                        <button onClick={toggleTheme} aria-label={t("toggleTheme")}>
+                            {theme === "light" ? (
+                                <Moon className="w-6 h-6 text-gray-600"/>
+                            ) : (
+                                <Sun className="w-6 h-6 text-gray-300"/>
+                            )}
+                        </button>
+                    </div>
                 </div>
                 <form
                     className="flex flex-col gap-4"
@@ -69,7 +81,7 @@ const LoginPage: React.FC = () => {
                         name="email"
                         id="email"
                         required
-                        className="block w-full px-4 py-3 border border-inactiveBorderColor rounded-lg shadow-sm focus:ring-accentColor focus:border-accentBorderColor text-lg text-primaryColor bg-inactiveBackground"
+                        className="block w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-accentColor focus:border-accentBorderColor text-lg text-primaryColor bg-primaryBackgroundColor"
                         placeholder={t("emailPlaceholder")}
                     />
                     <Input
@@ -78,7 +90,7 @@ const LoginPage: React.FC = () => {
                         name="password"
                         id="password"
                         required
-                        className="block w-full px-4 py-3 border border-inactiveBorderColor rounded-lg shadow-sm focus:ring-accentColor focus:border-accentBorderColor text-lg text-primaryColor bg-inactiveBackground"
+                        className="block w-full px-4 py-3 border rounded-lg shadow-sm focus:ring-accentColor focus:border-accentBorderColor text-lg text-primaryColor bg-primaryBackgroundColor"
                         placeholder={t("passwordPlaceholder")}
                     />
                     {/* Submit Button */}
@@ -97,9 +109,9 @@ const LoginPage: React.FC = () => {
                         name={"checkbox"}
                     />
                 </form>
-                <p className="mt-6 text-center text-lg text-secondaryColor">
+                <p className="mt-6 text-center text-lg">
                     {t("noAccountMessage")}{' '}
-                    <Link href="/register" className="text-accentBackgroundColor hover:text-primaryColor font-medium">
+                    <Link href="/register" className="text-accentBackgroundColor hover:text-primaryColor dark:hover:text-secondaryColor font-medium">
                         {t("registerLink")}
                     </Link>
                 </p>
