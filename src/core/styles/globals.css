@@ -11,23 +11,24 @@
 @layer base {
     :root {
         /* Custom Semantic Variables */
-        --primary-border-color: rgb(0 0 0 / 100%);
-        --secondary-border-color: rgb(255 200 221);
-        --inactive-border-color: rgb(96 100 171 / 50%);
-        --accent-border-color: rgb(96 100 171 / 100%);
-        --error-border-color: rgb(96 100 171);
+        --primary-border-color: rgb(34, 41, 47); /* Neutral Dark Gray */
+        --secondary-border-color: rgb(200, 215, 230); /* Light Cool Gray */
+        --inactive-border-color: rgb(144, 164, 174); /* Muted Blue-Gray */
+        --accent-border-color: rgb(37, 99, 235); /* Vibrant Blue */
+        --error-border-color: rgb(239, 68, 68); /* Strong Red */
 
-        --primary-background-color: rgb(255 255 255);
-        --secondary-background-color: rgb(0 0 0 / 10%);
-        --inactive-background-color: rgb(59 130 246 / 70%);
-        --accent-background-color: rgb(59 130 246 / 100%);
-        --error-background-color: rgb(255 0 0 / 100%);
+        --primary-background-color: rgb(248, 250, 252); /* Soft Off-White */
+        --secondary-background-color: rgba(241, 245, 249, 0.7); /* Frosted Cool White */
+        --inactive-background-color: rgba(226, 232, 240, 0.5); /* Light Muted Blue */
+        --accent-background-color: rgb(37, 99, 235); /* Vibrant Blue */
+        --error-background-color: rgb(255, 71, 71); /* Vibrant Red */
 
-        --primary-color: rgb(0 0 0 / 100%);
-        --secondary-color: rgb(0 0 0 / 50%);
-        --inactive-color: rgb(0 0 0 / 20%);
-        --accent-color: rgb(255 255 255 / 100%);
-        --error-color: rgb(255 0 0 / 30%);
+        --primary-color: rgb(29, 32, 37); /* Dark Neutral */
+        --secondary-color: rgba(75, 85, 99, 0.7); /* Muted Gray */
+        --inactive-color: rgb(156, 163, 175); /* Light Cool Gray */
+        --accent-color: rgb(255, 255, 255); /* Pure White for Text on Accent */
+        --error-color: rgb(245, 101, 101); /* Soft Red */
+
 
         /* Shadcn UI Variables */
         --background: 0 0% 100%;
@@ -60,6 +61,25 @@
     }
 
     .dark {
+        /* Dark Mode Custom Semantic Variables */
+        --primary-border-color: rgb(60, 66, 74); /* Deep Neutral Gray */
+        --secondary-border-color: rgb(89, 97, 108); /* Subtle Mid Gray */
+        --inactive-border-color: rgb(70, 76, 84); /* Muted Cool Gray */
+        --accent-border-color: rgb(56, 189, 248); /* Bright Cyan */
+        --error-border-color: rgb(239, 68, 68); /* Strong Red */
+
+        --primary-background-color: rgb(17, 24, 39); /* Very Dark Blue-Gray */
+        --secondary-background-color: rgba(31, 41, 55, 0.7); /* Frosted Dark Blue-Gray */
+        --inactive-background-color: rgba(51, 65, 85, 0.5); /* Muted Blue-Gray */
+        --accent-background-color: rgb(56, 189, 248); /* Bright Cyan */
+        --error-background-color: rgb(220, 38, 38); /* Vibrant Red */
+
+        --primary-color: rgb(229, 231, 235); /* Light Neutral */
+        --secondary-color: rgba(156, 163, 175, 0.8); /* Muted Cool Gray */
+        --inactive-color: rgba(107, 114, 128, 0.7); /* Softer Gray */
+        --accent-color: rgb(17, 24, 39); /* Very Dark Blue-Gray for Text on Accent */
+        --error-color: rgb(252, 165, 165); /* Soft Red */
+
         --background: 0 0% 3.9%;
         --foreground: 0 0% 98%;
         --card: 0 0% 3.9%;
