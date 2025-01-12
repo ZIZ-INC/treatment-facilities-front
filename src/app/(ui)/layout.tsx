@@ -13,14 +13,14 @@ export default async function RootLayout({
     if (!session) redirect("/login");
 
     return (
-        <div className="flex flex-col h-dvh">
+        <div className="flex flex-col h-dvh bg-primaryBackgroundColor">
             {/* Header */}
-            <div className="min-h-16 max-h-32 bg-secondaryBackgroundColor flex-shrink-0">
+            <div className="min-h-16 max-h-32 flex-shrink-0">
                 <Header/>
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 overflow-auto bg-primaryBackgroundColor">
+            <div className="flex-1 overflow-auto">
                 {children}
             </div>
 

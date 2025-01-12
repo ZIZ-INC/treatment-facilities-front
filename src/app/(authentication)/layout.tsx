@@ -12,8 +12,8 @@ export default async function RootLayout({
     const session = await auth();
     if (session) redirect("/")
     return (
-        <>
+        <div className="bg-primaryBackgroundColor">
             {children}
-        </>
+        </div>
     );
 }
