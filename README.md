@@ -1,8 +1,23 @@
+[![Live Demo](https://img.shields.io/badge/demo-online-green)](https://next-intl-auth-mu.vercel.app/)
+
 # Next.js 15 Boilerplate with Next-Auth, TypeScript, and Internationalization
 
 A modern boilerplate for building scalable web applications with **Next.js 15**, **TypeScript**, and integrated **i18n** (internationalization). Perfect for developers looking for authentication (Next-Auth), schema validation (Zod), and responsive designs (Tailwind CSS).
 
 ---
+
+## Deployment
+
+This project is live and deployed on **Vercel**!  
+Visit the live demo: **[Next.js Boilerplate Live](https://next-intl-auth-mu.vercel.app/)**
+
+### How to Deploy on Vercel
+
+1. Install the [Vercel CLI](https://vercel.com/docs/cli):
+   ```bash
+   npm install -g vercel
+   ```
+   
 
 ## Features
 
