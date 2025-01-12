@@ -26,7 +26,7 @@ export function LanguageSelect({
     labelClassName,
     wrapperClassName,
 }: LanguageSelectorProps) {
-    const t = useTranslations("shared.components.LanguageSelector");
+    const t = useTranslations("shared.components.LanguageSelect");
     const [currentLocale, setCurrentLocale] = useState(defaultLocale);
     const router = useRouter();
 
