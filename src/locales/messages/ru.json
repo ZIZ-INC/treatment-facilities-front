@@ -74,7 +74,7 @@
   },
   "shared": {
     "components": {
-      "LanguageSelector": {
+      "LanguageSelect": {
         "label": "Язык",
         "en": "Английский",
         "ru": "Русский",
