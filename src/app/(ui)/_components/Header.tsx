@@ -77,6 +77,7 @@ export function Header() {
             {/* Mobile Menu */}
             {menuOpen && (
                 <div
+                    role="dialog"
                     className="absolute top-16 right-4 w-64 bg-primaryBackgroundColor border border-secondaryBorderColor rounded-lg shadow-lg p-4 flex flex-col gap-4"
                 >
                     <div className="flex flex-col gap-2">
