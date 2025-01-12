@@ -4,6 +4,7 @@
       "_components": {
         "Header": {
           "title": "Next Intl Auth Boilerplate",
+          "toggleTheme": "Toggle theme",
           "unknownUser": "Unknown User",
           "signOut": "Sign Out",
           "user": "User",
@@ -33,6 +34,7 @@
     "(authentication)": {
       "login": {
         "title": "Login",
+        "toggleTheme": "Toggle theme",
         "emailLabel": "Email Address",
         "emailPlaceholder": "Enter your email",
         "passwordLabel": "Password",
@@ -47,6 +49,7 @@
       },
       "register": {
         "title": "Register",
+        "toggleTheme": "Toggle theme",
         "usernameLabel": "Username",
         "usernamePlaceholder": "Enter your username",
         "emailLabel": "Email",

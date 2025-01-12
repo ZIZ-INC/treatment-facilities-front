@@ -4,6 +4,7 @@
       "_components": {
         "Header": {
           "title": "Next Intl Auth Шаблон",
+          "toggleTheme": "Сменить тему",
           "unknownUser": "Неизвестный пользователь",
           "signOut": "Выйти",
           "user": "Пользователь",
@@ -33,6 +34,7 @@
     "(authentication)": {
       "login": {
         "title": "Вход",
+        "toggleTheme": "Сменить тему",
         "emailLabel": "Адрес электронной почты",
         "emailPlaceholder": "Введите ваш E-mail",
         "passwordLabel": "Пароль",
@@ -47,6 +49,7 @@
       },
       "register": {
         "title": "Регистрация",
+        "toggleTheme": "Сменить тему",
         "usernameLabel": "Имя пользователя",
         "usernamePlaceholder": "Введите имя пользователя",
         "emailLabel": "Email",
