@@ -1,10 +1,10 @@
 "use client"
 
 import React from "react"
-import {Login} from "@/features/authentication/components/Login";
+import {Reset} from "@/features/authentication/components/Reset";
 
 const LoginPage: React.FC = () => {
-    return <Login/>
+    return <Reset/>
 }
 
 export default LoginPage
