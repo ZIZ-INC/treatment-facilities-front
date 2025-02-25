@@ -1,6 +1,6 @@
 import React from "react";
-import {Header} from "@/core/components/Header";
-import {Footer} from "@/core/components/Footer";
+import {SidebarProvider} from "@/shared/components/ui/sidebar";
+import {AppSidebar} from "@/core/components/AppSidebar";
 
 export default async function RootLayout({
     children,
@@ -8,21 +8,11 @@ export default async function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="flex flex-col h-dvh bg-primaryBackgroundColor">
-            {/* Header */}
-            <div className="min-h-16 max-h-32 flex-shrink-0">
-                <Header/>
-            </div>
-
-            {/* Main Content */}
-            <div className="flex-1 overflow-auto">
+        <SidebarProvider>
+            <AppSidebar />
+            <main>
                 {children}
-            </div>
-
-            {/* Footer */}
-            <div className="h-16 border-t flex-shrink-0">
-                <Footer/>
-            </div>
-        </div>
+            </main>
+        </SidebarProvider>
     );
 }
