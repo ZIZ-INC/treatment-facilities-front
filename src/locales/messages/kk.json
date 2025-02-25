@@ -32,6 +32,20 @@
       }
     }
   },
+  "core": {
+    "components": {
+      "AppSidebar": {
+        "calculators": "Калькулятор",
+        "householdGoods": "Тұрмыстық тауарлар",
+        "KNS": "КНС",
+        "stormDrain": "Дауыл дренажы",
+        "managerInstruments": "Менеджер құралдары",
+        "displaySettings": "Дисплей параметрлері",
+        "userCalculations": "Пайдаланушы есептеулері",
+        "analytics": "Аналитика"
+      }
+    }
+  },
   "features": {
     "authentication": {
       "components": {

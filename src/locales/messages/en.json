@@ -32,6 +32,20 @@
       }
     }
   },
+  "core": {
+    "components": {
+      "AppSidebar": {
+        "calculators": "Calculators",
+        "householdGoods": "Household Goods",
+        "KNS": "KNS",
+        "stormDrain": "Storm drain",
+        "managerInstruments": "Manager Instruments",
+        "displaySettings": "Display Settings",
+        "userCalculations": "User Calculations",
+        "analytics": "Analytics"
+      }
+    }
+  },
   "features": {
     "authentication": {
       "components": {

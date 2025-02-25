@@ -32,6 +32,20 @@
       }
     }
   },
+  "core": {
+    "components": {
+      "AppSidebar": {
+        "calculators": "Calculators",
+        "householdGoods": "Хозбыт",
+        "KNS": "КНС",
+        "stormDrain": "Ливневка",
+        "managerInstruments": "Инструменты менеджера",
+        "displaySettings": "Настройки отображения",
+        "userCalculations": "Расчеты пользователей",
+        "analytics": "Аналитика"
+      }
+    }
+  },
   "features": {
     "authentication": {
       "components": {
